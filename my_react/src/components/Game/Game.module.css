@@ -1,0 +1,7 @@
+.game{
+    grid-template-rows: 2fr 8fr 2fr;
+    justify-content: center;
+}
+.game div{
+    border: 1px solid red;
+}
