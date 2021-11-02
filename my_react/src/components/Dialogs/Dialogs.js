@@ -9,6 +9,16 @@ const Dialogs = (props) => {
 
     let messagesElements = props.state.messages.map(el => <Message message={el.message}/>)
 
+    let messageText = React.createRef();
+
+    let onMessageChange = () => {
+        props.updateNewMessageText(messageText.current.value)
+    }
+
+    let addMessage = () => {
+        props.addMessage()
+    };
+
     return (
         <div className={style.dialogs}>
             <div className={style.dialog}>
@@ -16,6 +26,10 @@ const Dialogs = (props) => {
             </div>
             <div className={style.messages}>
                 {messagesElements}
+            </div>
+            <div className={style.inputBlock}>
+                <input ref={messageText} onChange={onMessageChange} value={props.state.newMessageText}/>
+                <button onClick={addMessage}>Go</button>
             </div>
         </div>
     )

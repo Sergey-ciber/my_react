@@ -9,6 +9,9 @@ const Game = () => {
            </div>
             <div>
                 Level content
+                <div>
+                    <input onBlur={() => {alert('Hello!')}}/>
+                </div>
             </div>
             <div>
                 Input answer
