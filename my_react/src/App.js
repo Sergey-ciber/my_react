@@ -7,19 +7,17 @@ import Dialogs from "./components/Dialogs/Dialogs";
 import {BrowserRouter, Route} from "react-router-dom";
 import Game from "./components/Game/Game";
 
-function App() {
+function App(props) {
     return (
-        <BrowserRouter>
-            <div className={'app-wrapper'}>
-                <Header/>
-                <Navbar/>
-                <div className={'app-wrapper-content'}>
-                    <Route path={'/profile'} component={Profile}/>
-                    <Route path={'/dialogs'} component={Dialogs}/>
-                    <Route path={'/game'} component={Game}/>
-                </div>
+        <div className={'app-wrapper'}>
+            <Header/>
+            <Navbar/>
+            <div className={'app-wrapper-content'}>
+                <Route path={'/profile'} render={() => <Profile state={props.state.ProfilePage}/>}/>
+                <Route path={'/dialogs'} render={() => <Dialogs state={props.state.messagesPage}/>}/>
+                <Route path={'/game'} render={() => <Game/>}/>
             </div>
-        </BrowserRouter>
+        </div>
     );
 }
 
