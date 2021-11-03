@@ -3,8 +3,9 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import {BrowserRouter} from "react-router-dom";
+import {addPost, addMessage, updateNewPostText, updateNewMessageText} from './redux/state';
 
-export let rerenderEntireTree = (state, addPost, addMessage, updateNewPostText, updateNewMessageText) => {
+export let rerenderEntireTree = (state) => {
     ReactDOM.render(
         <React.StrictMode>
             <BrowserRouter>

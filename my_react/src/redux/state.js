@@ -25,9 +25,11 @@ let state = {
     }
 }
 
+window.state = state;
+
 export let updateNewPostText = (text) => {
     state.profilePage.newPostText = text;
-    rerenderEntireTree(state, addPost, addMessage, updateNewPostText, updateNewMessageText)
+    rerenderEntireTree(state)
 };
 
 export let addPost = () => {
@@ -38,12 +40,12 @@ export let addPost = () => {
     }
     state.profilePage.posts.push(newPost);
     state.profilePage.newPostText = '';
-    rerenderEntireTree(state, addPost, addMessage, updateNewPostText, updateNewMessageText)
+    rerenderEntireTree(state)
 };
 
 export let updateNewMessageText = (text) => {
     state.dialogsPage.newMessageText = text;
-    rerenderEntireTree(state, addPost, addMessage, updateNewPostText, updateNewMessageText)
+    rerenderEntireTree(state)
 };
 
 export let addMessage = () => {
@@ -53,7 +55,7 @@ export let addMessage = () => {
     };
     state.dialogsPage.messages.push(newMessage);
     state.dialogsPage.newMessageText = '';
-    rerenderEntireTree(state, addPost, addMessage, updateNewPostText, updateNewMessageText)
+    rerenderEntireTree(state)
 };
 
 export default state;
