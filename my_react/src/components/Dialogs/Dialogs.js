@@ -10,11 +10,10 @@ const Dialogs = (props) => {
 
     let messagesElements = props.state.messages.map(el => <Message message={el.message}/>)
 
-    let messageText = React.createRef();
 
-    let onMessageChange = () => {
+    let onMessageChange = (e) => {
         props.dispatch(
-            updateNewMessageTextActionCreator(messageText.current.value)
+            updateNewMessageTextActionCreator(e.target.value)
         )
     }
 
@@ -33,7 +32,7 @@ const Dialogs = (props) => {
                 {messagesElements}
             </div>
             <div className={style.inputBlock}>
-                <input ref={messageText} onChange={onMessageChange} value={props.state.newMessageText}/>
+                <input onChange={onMessageChange} value={props.state.newMessageText}/>
                 <button onClick={addMessage}>Go</button>
             </div>
         </div>

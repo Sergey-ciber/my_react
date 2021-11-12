@@ -1,3 +1,8 @@
+const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
+const ADD_POST = 'ADD-POST';
+const UPDATE_NEW_MESSAGE_TEXT = 'UPDATE-NEW-MESSAGE-TEXT';
+const ADD_MESSAGE = 'ADD-MESSAGE';
+
 let rerenderEntireTree = () => {
 };
 
@@ -37,24 +42,24 @@ let store = {
     },
 
     dispatch(action) {
-        if (action.type === 'UPDATE-NEW-POST-TEXT') {
+        if (action.type === UPDATE_NEW_POST_TEXT) {
             this.state.profilePage.newPostText = action.text;
             rerenderEntireTree(this.state)
-        } else if (action.type === 'ADD-POST') {
+        } else if (action.type === ADD_POST) {
             let newPost = {
-                id: 3,
+                id: this.state.profilePage.posts[this.state.profilePage.posts.length - 1].id + 1,
                 post: this.state.profilePage.newPostText,
                 likeCount: 0
             }
             this.state.profilePage.posts.push(newPost);
             this.state.profilePage.newPostText = '';
             rerenderEntireTree(this.state)
-        } else if (action.type === 'UPDATE-NEW-MESSAGE-TEXT') {
+        } else if (action.type === UPDATE_NEW_MESSAGE_TEXT) {
             this.state.dialogsPage.newMessageText = action.text;
             rerenderEntireTree(this.state)
-        } else if (action.type === 'ADD-MESSAGE') {
+        } else if (action.type === ADD_MESSAGE) {
             let newMessage = {
-                id: 4,
+                id: this.state.dialogsPage.messages[this.state.dialogsPage.messages.length - 1].id + 1,
                 message: this.state.dialogsPage.newMessageText
             };
             this.state.dialogsPage.messages.push(newMessage);
@@ -64,31 +69,23 @@ let store = {
     }
 }
 
-export const addPostActionCreator = () => {
-    return {
-        type: 'ADD-POST'
-    }
-};
+export const addPostActionCreator = () => ({
+    type: ADD_POST
+});
 
-export const updateNewPostActionCreator = (text) => {
-    return {
-        type: 'UPDATE-NEW-POST-TEXT',
-        text: text
-    }
-};
+export const updateNewPostActionCreator = (text) => ({
+    type: UPDATE_NEW_POST_TEXT,
+    text: text
+});
 
-export const updateNewMessageTextActionCreator = (text) => {
-    return {
-        type: 'UPDATE-NEW-MESSAGE-TEXT',
-        text: text
-    }
-};
+export const updateNewMessageTextActionCreator = (text) => ({
+    type: UPDATE_NEW_MESSAGE_TEXT,
+    text: text
+});
 
-export const addMessageActionCreator = () => {
-        return {
-            type: 'ADD-MESSAGE'
-        }
-};
+export const addMessageActionCreator = () => ({
+    type: ADD_MESSAGE
+});
 
 window.state = store.state;
 
