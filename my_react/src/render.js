@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import {BrowserRouter} from "react-router-dom";
-import {addPost, addMessage, updateNewPostText, updateNewMessageText} from './redux/state';
+import {addPost, addMessage, updateNewPostText, updateNewMessageText} from './redux/store';
 
 export let rerenderEntireTree = (state) => {
     ReactDOM.render(

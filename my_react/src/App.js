@@ -3,9 +3,9 @@ import React from 'react';
 import Header from './components/Header/Header';
 import Navbar from './components/Navbar/Navbar';
 import Profile from './components/Profile/Profile';
-import Dialogs from "./components/Dialogs/Dialogs";
 import {Route} from "react-router-dom";
 import Game from "./components/Game/Game";
+import DialogsContainer from "./components/Dialogs/DialogsContainer";
 
 function App(props) {
     return (
@@ -13,8 +13,8 @@ function App(props) {
             <Header/>
             <Navbar/>
             <div className={'app-wrapper-content'}>
-                <Route path={'/profile'} render={() => <Profile state={props.state.profilePage} dispatch={props.dispatch}/>}/>
-                <Route path={'/dialogs'} render={() => <Dialogs state={props.state.dialogsPage} dispatch={props.dispatch}/>}/>
+                <Route path={'/profile'} render={() => <Profile store={props.store}/>}/>
+                <Route path={'/dialogs'} render={() => <DialogsContainer store={props.store}/>}/>
                 <Route path={'/game'} render={() => <Game/>}/>
             </div>
         </div>
