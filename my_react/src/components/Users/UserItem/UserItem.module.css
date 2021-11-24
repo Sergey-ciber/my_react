@@ -1,0 +1,31 @@
+.userItem{
+    display: grid;
+    grid-template-areas:
+            "ava ..."
+            "fulName ..."
+            "location status"
+            "button ...";
+    grid-template-columns: 3fr 8fr;
+    margin: 1%;
+}
+.ava{
+    grid-area: ava;
+    height: 50px;
+    width: 50px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-image: url("https://sun1-89.userapi.com/s/v1/ig2/scmSJ3hLQl4MyEumROzrYZUFDWK7xCyfUQu7EVcXMVPXx1UGd7wc_2DxbLEfZQNdslH_MEh0WcBH5F1eFXxrY6Sr.jpg?size=400x0&quality=96&crop=3,2,527,527&ava=1");
+    border-radius: 50%;
+}
+.status{
+    grid-area: status;
+}
+.fullName{
+    grid-area: fulName;
+}
+.location{
+    grid-area: location;
+}
+.button{
+    grid-area: button;
+}
